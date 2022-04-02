@@ -1,0 +1,310 @@
+<HTML>
+<HEAD>
+<b><H1>WELCOME</H1></b>
+<script>
+
+//Useless below only for reference
+function hello()
+{
+alert('HELLO WORLD');
+}
+</script>
+</HEAD>
+
+<BODY>
+<p style="color:red"><i><marquee width="60%" direction="right" height="100px">
+DEMONSTRATION
+</marquee></i></p>
+
+<p>NAVIGATION LINKS:</P>
+
+<nav>
+<a href="https://www.amazon.in">AMAZON</a> |
+<a href="https://www.flipkart.in">flipkart</a> |
+<a href="https://www.google.in">GOOGLE</a> |
+<a href="https://www.apple.in">APPLE</a>
+</nav>
+
+<br>
+
+
+
+<style>
+/* Style all input fields */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Style the container for inputs */
+.container {
+  background-color: #f1f1f1;
+  padding: 8px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+</style>
+</head>
+<body>
+
+<h3>Password Validation</h3>
+<p>Try to submit the form.</p>
+
+<div class="container">
+  <form action="/action_page.php">
+    <label for="usrname1">Username</label>
+    <input type="text" id="usrname1" name="usrname1" required>
+
+    <label for="psw">Password</label>
+    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+    
+    <input type="submit" value="Submit" onclick="valids()">
+  </form>
+</div>
+
+<div id="message">
+  <h3>Password must contain the following:</h3>
+  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+</div>
+				
+<script>
+var myInput1 = document.getElementById("psw");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+var usrname1 = document.getElementById("usrname1");
+function valids()
+{
+
+var myInput 1 = document.getElementById("psw").value;
+var usrname1 = document.getElementById("usrname1").value;
+
+	if(myInput1=='123' && usrname1=='test')
+	{
+	alert('User valid');
+	}
+	else
+	{
+	alert('Invalid User')
+	}
+}
+
+// When the user clicks on the password field, show the message box
+myInput1.onfocus = function() {
+  document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput1.onblur = function() {
+  document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput1.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput1.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput1.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput1.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput1.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+</script>
+
+
+<br>
+
+<div class="myDiv">
+  <h2 style="color:blue">This is a heading in a div element</h2>
+  
+  <p>Click the button to demonstrate the prompt box.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var person = prompt("Please enter your name", "");
+  if (person != null) {
+    document.getElementById("demo").innerHTML =
+    "Hello " + person + "! How are you today?";
+  }
+}
+</script>
+
+  
+</div>
+
+<BR>
+
+<form>
+<label for="Options">Choose an option:</label>
+<select name="Options" id="options">
+<option value="1">one</option>
+<option value="2">two</option>
+<option value="3">three</option>
+<option value="4">four</option>
+</select>
+<br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<style>
+.myDiv {
+  border: 8px outset ORANGE;
+  background-color: GREEN;    
+  text-align: center;
+}
+
+h1 {text-align: center;
+font-family: verdana;
+}
+
+p {text-align: center;}
+nav {text-align: center;}
+form {text-align: center;}
+body {
+  background-color: lightblue;
+}
+
+</style>
+
+<style>
+
+<table {
+  font-family: arial, verdana;
+  border-collapse: collapse;
+  width: 80%;
+
+}
+
+td, th  {  
+  border: 5px solid #8C9491;
+  text-align: left;
+  padding: 7px;
+  
+}
+
+tr:nth-child(even) {
+  background-color: #8C9491;
+  
+}
+
+</style>
+
+<body>
+
+<h4>HTML TABLE</H4>
+
+<table>
+  <tr>
+    <th>Company</th>
+	<th>Contact</th>
+	<th>Country</th>
+  </tr>
+  
+  <tr>
+    <td>abcde</td>
+	<td>123456</td>
+	<td>India</td>
+  </tr>
+  
+  <tr>
+    <td>mnopqr</td>
+	<td>78910</td>
+	<td>India</td>
+  </tr>
+
+
+</table>
+
+
+
+
+
+</BODY>
+</HTML>
