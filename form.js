@@ -1,4 +1,3 @@
-<script>
 var myInput1 = document.getElementById("psw");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
@@ -8,7 +7,7 @@ var usrname1 = document.getElementById("usrname1");
 function valids()
 {
 
-var myInput 1 = document.getElementById("psw").value;
+var myInput1 = document.getElementById("psw").value;
 var usrname1 = document.getElementById("usrname1").value;
 
 	if(myInput1=='123' && usrname1=='test')
@@ -72,4 +71,3 @@ myInput1.onkeyup = function() {
     length.classList.add("invalid");
   }
 }
-</script>
